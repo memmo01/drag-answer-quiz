@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Drag Answer Quiz</title>
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <main>
+      <section class="question-section">
+        <p>what is 500 + 500?</p>
+      </section>
+      <section class="answers">
+        <div
+          class="answer-container"
+          ondrop="drop_handler(event);"
+          ondragover="dragover_handler(event);"
+        >
+          <div
+            class="answer-box"
+            id="a20"
+            ondragstart="dragstart_handler(event);"
+            draggable="true"
+            data-num="20"
+          >
+            20
+          </div>
+          <div
+            class="answer-box"
+            id="a50"
+            ondragstart="dragstart_handler(event);"
+            draggable="true"
+            data-num="50"
+          >
+            50
+          </div>
+          <div
+            class="answer-box"
+            id="a1000"
+            ondragstart="dragstart_handler(event);"
+            draggable="true"
+            data-num="1000"
+          >
+            1000
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="drag-answer-section"
+        ondrop="drop_handler(event);"
+        ondragstart="dragstart_handler(event);"
+        ondragover="dragover_handler(event);"
+      >
+        Drag Answer Here
+      </section>
+    </main>
+
+    <script>
+      function dragstart_handler(e) {
+        e.currentTarget.style.backgroundColor = "rgba(255,255,255,.5)";
+        e.dataTransfer.setData("text", e.target.id);
+      }
+
+      function dragover_handler(e) {
+        e.preventDefault();
+      }
+
+      function drop_handler(e, trial) {
+        e.preventDefault();
+        console.log(e);
+        let xx = document.getElementById("drag-answer-section");
+        if (
+          e.srcElement.className === "answer-container" ||
+          (e.srcElement.id === "drag-answer-section" && xx.children.length < 1)
+        ) {
+          // console.log(e.target.textContent = "")
+
+          let y = e.dataTransfer.getData("text");
+          e.target.appendChild(document.getElementById(y));
+
+          // document.getElementById("drag-answer-section").removeAttribute("ondrop")
+
+          setTimeout(function () {
+            console.log(e.target.children[0].dataset.num);
+          }, 0);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+.answers {
+  /* margin: auto; */
+  overflow: auto;
+}
+
+.answer-container {
+  width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.answer-box {
+  box-sizing: border-box;
+  padding: 50px;
+  max-width: 130px;
+  margin: auto 5px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.question-section p {
+  text-align: center;
+  font-size: 50px;
+}
+
+#drag-answer-section {
+  border: 1px solid black;
+  width: 50%;
+  margin: 50px auto;
+  height: 200px;
+  text-align: center;
+}
