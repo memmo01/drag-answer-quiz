@@ -26,6 +26,7 @@
             ondragstart="dragstart_handler(event);"
             draggable="true"
             data-num="20"
+            data-answerIndex="0"
           >
             20
           </div>
@@ -35,6 +36,7 @@
             ondragstart="dragstart_handler(event);"
             draggable="true"
             data-num="50"
+            data-answerIndex="0"
           >
             50
           </div>
@@ -44,6 +46,7 @@
             ondragstart="dragstart_handler(event);"
             draggable="true"
             data-num="1000"
+            data-answerIndex="0"
           >
             1000
           </div>
@@ -56,40 +59,14 @@
         ondragstart="dragstart_handler(event);"
         ondragover="dragover_handler(event);"
       >
-        Drag Answer Here
+        <span id="dragText"> Drag Answer Here</span>
+      </section>
+
+      <section class="submit-section">
+        <button id="submit">Submit Answer</button>
       </section>
     </main>
 
-    <script>
-      function dragstart_handler(e) {
-        e.currentTarget.style.backgroundColor = "rgba(255,255,255,.5)";
-        e.dataTransfer.setData("text", e.target.id);
-      }
-
-      function dragover_handler(e) {
-        e.preventDefault();
-      }
-
-      function drop_handler(e, trial) {
-        e.preventDefault();
-        console.log(e);
-        let xx = document.getElementById("drag-answer-section");
-        if (
-          e.srcElement.className === "answer-container" ||
-          (e.srcElement.id === "drag-answer-section" && xx.children.length < 1)
-        ) {
-          // console.log(e.target.textContent = "")
-
-          let y = e.dataTransfer.getData("text");
-          e.target.appendChild(document.getElementById(y));
-
-          // document.getElementById("drag-answer-section").removeAttribute("ondrop")
-
-          setTimeout(function () {
-            console.log(e.target.children[0].dataset.num);
-          }, 0);
-        }
-      }
-    </script>
+    <script type="text/javascript" src="./js/script.js"></script>
   </body>
 </html>

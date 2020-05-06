@@ -4,19 +4,19 @@
 }
 
 .answer-container {
-  width: 700px;
+  width: 95%;
   margin: auto;
   text-align: center;
 }
 
 .answer-box {
   box-sizing: border-box;
-  padding: 50px;
-  max-width: 130px;
-  margin: auto 5px;
+  padding: 30px;
+  max-width: 32%;
   display: inline-block;
   text-align: center;
   border: 1px solid black;
+  margin: 0 5px;
 }
 
 .question-section p {
@@ -26,8 +26,12 @@
 
 #drag-answer-section {
   border: 1px solid black;
-  width: 50%;
+  width: 80%;
   margin: 50px auto;
   height: 200px;
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }
