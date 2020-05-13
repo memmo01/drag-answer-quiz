@@ -136,4 +136,7 @@ main {
     right: 10px;
     bottom: 0;
   }
+  .question-section p {
+    font-size: 35px;
+  }
 }
