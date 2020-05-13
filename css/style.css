@@ -133,6 +133,7 @@ main {
     width: 100%;
   }
   #question-keeper {
-    right: 50px;
+    right: 10px;
+    bottom: 0;
   }
 }

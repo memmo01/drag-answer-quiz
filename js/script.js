@@ -36,7 +36,10 @@ if (
   )
 ) {
   isMobile = true;
-  alert(true);
+  console.log("mobile quiz");
+  mobileVersion();
+
+  // if it is true then add click event for the boxes. When clicked, have that box moved into the answer box. when box in the answer box is clicked then move it to the list of answers container .
 }
 
 // drag content functions ---------
@@ -264,3 +267,35 @@ submit.addEventListener("click", function (e) {
   e.preventDefault();
   runSubmissionCheck();
 });
+
+//mobile javascript
+
+function mobileVersion() {
+  console.log("mobile");
+  let a = document.querySelector(".answers");
+
+  //on mobile when clicking an answer
+  a.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (e.target.matches(".answer-box")) {
+      mobileAddAnswerBox(e.target);
+    }
+  });
+
+  //on mobile when clicking an answer in the answer box. Have the answer in the box moved back to the answer container
+
+  answerSection.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    if (e.target.matches(".answer-box")) {
+      answersContain.append(e.target);
+    }
+  });
+}
+
+function mobileAddAnswerBox(content) {
+  if (answerSection.children.length < 2) {
+    answerBoxTextCheck(true, answerSection.children[0]);
+    answerSection.append(content);
+  }
+}
