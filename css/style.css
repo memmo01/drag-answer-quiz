@@ -1,3 +1,15 @@
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  position: relative;
+  padding-bottom: 30px;
+}
 .answers {
   /* margin: auto; */
   overflow: auto;
@@ -13,10 +25,17 @@
   box-sizing: border-box;
   padding: 30px;
   max-width: 32%;
+  min-width: fit-content;
   display: inline-block;
   text-align: center;
-  border: 1px solid black;
+  border: 2px solid #0389ff;
+  background-color: white !important;
   margin: 0 5px;
+  cursor: pointer;
+}
+
+.answer-box:active {
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5) inset;
 }
 
 .question-section p {
@@ -25,13 +44,95 @@
 }
 
 #drag-answer-section {
-  border: 1px solid black;
-  width: 80%;
+  background-color: #f4f7f9 !important;
+  width: 40%;
+  padding: 50px;
   margin: 50px auto;
-  height: 200px;
+  height: 100px;
   text-align: center;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1) inset;
 }
 
 .hidden {
   display: none;
+}
+.submit-section {
+  text-align: center;
+}
+.inactive-btn {
+  display: none;
+}
+.active-btn {
+  display: block;
+}
+.correct-answer {
+  background-color: #b9dca4;
+}
+.incorrect-answer {
+  background-color: rgba(232, 90, 113, 0.7);
+}
+#answer-response {
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+}
+
+#submit {
+  width: 200px;
+  margin: auto;
+  background-color: #0389ff !important;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  font-weight: 700;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+#question-keeper {
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  font-size: 20px;
+  border: 2px solid #0389ff;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.results-box {
+  width: 50%;
+  margin: 100px auto 0;
+  text-align: center;
+  border: 4px solid #0389ff;
+  padding: 50px 0px;
+}
+.results-box p {
+  font-size: 30px;
+}
+
+#submit:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  background-color: #348498 !important;
+}
+#try-again-btn {
+  display: block;
+  margin: 20px auto;
+}
+
+#submit:active {
+  box-shadow: none;
+  color: #f4f0e6;
+}
+
+@media (max-width: 768px) {
+  .answer-box {
+    max-width: 27%;
+    padding: 18px;
+  }
+  .results-box {
+    width: 100%;
+  }
+  #question-keeper {
+    right: 50px;
+  }
 }
