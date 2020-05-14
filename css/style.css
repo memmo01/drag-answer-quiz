@@ -126,7 +126,7 @@ main {
 .m-top-zero {
   margin-top: 0;
 }
-#qa {
+.qa {
   padding: 0 20px 20px 20px;
 }
 
@@ -168,5 +168,13 @@ main {
   }
   .question-section p {
     font-size: 35px;
+  }
+  #ul-results {
+    width: 100%;
+    padding: 0px;
+  }
+  .num-result {
+    padding: 0 10px;
+    width: fit-content;
   }
 }

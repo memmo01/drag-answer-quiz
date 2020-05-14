@@ -309,6 +309,7 @@ function quizDetailResults() {
     console.log(results.index);
     let li = document.createElement("li");
     let listContain = document.createElement("div");
+    listContain.setAttribute("class", "num-result");
 
     listContain.setAttribute("class", "results-list");
     let correct = document.createElement("i");
@@ -321,7 +322,7 @@ function quizDetailResults() {
     let num = document.createElement("div");
     num.setAttribute("style", "padding:0 10px;");
     let qaContain = document.createElement("div");
-    qaContain.setAttribute("id", "qa");
+    qaContain.setAttribute("class", "qa");
     let question = document.createElement("p");
     question.setAttribute("class", "m-top-zero");
     let answer = document.createElement("p");
@@ -331,7 +332,7 @@ function quizDetailResults() {
     } else {
       listContain.appendChild(incorrect);
     }
-    num.textContent = "# " + (results.index + 1);
+    num.textContent = "#" + (results.index + 1);
     question.textContent = "Question: " + answerObj[results.index].question;
     answer.textContent = "Your Answer: " + score[results.index].userAnswer;
     // listContain.appendChild(img);
