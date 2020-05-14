@@ -2,6 +2,26 @@
 let answerObj = [
   {
     question: "What is 500 + 500",
+    answerOptions: [1000, 50, 20, 22, 1, 22, 34],
+    correctAnswer: 1000,
+  },
+  {
+    question: "What is you favorite emotion?",
+    answerOptions: ["happy", "joy", "sad"],
+    correctAnswer: "happy",
+  },
+  {
+    question: "What is 500 + 500",
+    answerOptions: [1000, 50, 20],
+    correctAnswer: 1000,
+  },
+  {
+    question: "What is you favorite emotion?",
+    answerOptions: ["happy", "joy", "sad"],
+    correctAnswer: "happy",
+  },
+  {
+    question: "What is 500 + 500",
     answerOptions: [1000, 50, 20],
     correctAnswer: 1000,
   },
@@ -57,8 +77,12 @@ function dragover_handler(e) {
 
 function drop_handler(e) {
   e.preventDefault();
-  let dragTextBox = e.target.children[0];
-  let dragText = dragTextBox.id === "dragText";
+  let dragTextBox;
+  let dragText;
+  if (e.target.children.length === 1) {
+    dragTextBox = e.target.children[0];
+    dragText = dragTextBox.id === "dragText";
+  }
 
   // check the section an item is being dropped into. If it is an answer section then regulate how many items can be placed in it ---
   if (
@@ -99,7 +123,6 @@ start();
 function runSubmissionCheck() {
   if (checkForInput()) {
     checkAnswer();
-    console.log(score);
   }
 }
 
@@ -120,6 +143,8 @@ function checkAnswer() {
   let draggedAnswerData = answerSection.children[1].dataset;
   let index = parseInt(draggedAnswerData.answerindex);
   let answerArea = document.getElementById("drag-answer-section");
+  console.log(answerSection);
+  console.log(answerSection.children[1].textContent);
 
   // compare the chosen option with the correct answer
   let result = draggedAnswerData.num == answerObj[count].correctAnswer;
@@ -129,7 +154,8 @@ function checkAnswer() {
 
   updateDomScore();
   let record = {
-    index: index,
+    index: count,
+    userAnswer: answerSection.children[1].textContent,
     answeredCorrectly: result,
   };
 
@@ -154,6 +180,7 @@ function checkAnswer() {
   }, 1500);
 }
 
+//displays the results of the test at the end
 function quizResults() {
   let main = document.querySelector("main");
   answerSection.setAttribute("class", "inactive-btn");
@@ -172,6 +199,10 @@ function quizResults() {
   let spanIncorrect = document.createElement("span");
   let percentP = document.createElement("p");
   let tryAgainBtn = document.createElement("button");
+  let quizDetails = document.createElement("button");
+
+  quizDetails.textContent = "Show Quiz Details";
+  quizDetails.setAttribute("id", "quiz-detail-btn");
   tryAgainBtn.textContent = "Try Again";
   tryAgainBtn.setAttribute("id", "try-again-btn");
 
@@ -191,6 +222,10 @@ function quizResults() {
   div.appendChild(percentP);
   main.appendChild(div);
   main.appendChild(tryAgainBtn);
+  main.appendChild(quizDetails);
+
+  let xxx = quizDetailResults();
+  main.appendChild(xxx);
 }
 
 function scorePercent(correct, incorrect, total) {
@@ -252,14 +287,70 @@ function answerBoxTextCheck(dragText, dragTextBox) {
     dragTextBox.textContent = "";
     submit.setAttribute("class", "active-btn");
   } else {
-    dragTextId.textContent = "Drag Answer Here";
+    dragTextId.textContent = "Drag Answer in Box";
     submit.setAttribute("class", "inactive-btn");
   }
 }
 
+//onclick expand the ul
+function expandElement() {
+  let ulresults = document.getElementById("ul-results");
+  bodyHeight = ulresults.scrollHeight;
+  ulresults.setAttribute("style", "height:" + bodyHeight + "px;");
+}
+
+//display detailed quiz results
+
+function quizDetailResults() {
+  console.log(score);
+  let ul = document.createElement("ul");
+  ul.setAttribute("id", "ul-results");
+  score.forEach(function (results) {
+    console.log(results.index);
+    let li = document.createElement("li");
+    let listContain = document.createElement("div");
+
+    listContain.setAttribute("class", "results-list");
+    let correct = document.createElement("i");
+
+    correct.setAttribute("class", "fa fa-check-circle");
+    let incorrect = document.createElement("i");
+
+    incorrect.setAttribute("class", "fa fa-times-circle");
+
+    let num = document.createElement("div");
+    num.setAttribute("style", "padding:0 10px;");
+    let qaContain = document.createElement("div");
+    qaContain.setAttribute("id", "qa");
+    let question = document.createElement("p");
+    question.setAttribute("class", "m-top-zero");
+    let answer = document.createElement("p");
+
+    if (results.answeredCorrectly) {
+      listContain.appendChild(correct);
+    } else {
+      listContain.appendChild(incorrect);
+    }
+    num.textContent = "# " + (results.index + 1);
+    question.textContent = "Question: " + answerObj[results.index].question;
+    answer.textContent = "Your Answer: " + score[results.index].userAnswer;
+    // listContain.appendChild(img);
+    listContain.appendChild(num);
+    qaContain.appendChild(question);
+    qaContain.appendChild(answer);
+    listContain.appendChild(qaContain);
+    li.appendChild(listContain);
+    ul.appendChild(li);
+  });
+  return ul;
+}
+
 document.addEventListener("click", function (e) {
-  if (e.target.matches("button") && (e.target.textContent = "try again")) {
+  if (e.target.matches("button") && e.target.id === "try-again-btn") {
     location.reload();
+  } else if (e.target.matches("button") && e.target.id === "quiz-detail-btn") {
+    console.log("run the quiz details function");
+    expandElement();
   }
 });
 
