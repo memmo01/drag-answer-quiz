@@ -2,33 +2,33 @@
 let answerObj = [
   {
     question: "What is 500 + 500",
-    answerOptions: [1000, 50, 20, 22, 1, 22, 34],
+    answerOptions: [1000, 50, 20, 22],
     correctAnswer: 1000,
   },
   {
-    question: "What is you favorite emotion?",
-    answerOptions: ["happy", "joy", "sad"],
-    correctAnswer: "happy",
+    question: "what is 200 / 2",
+    answerOptions: ["400", "150", "100"],
+    correctAnswer: "100",
   },
   {
-    question: "What is 500 + 500",
-    answerOptions: [1000, 50, 20],
-    correctAnswer: 1000,
+    question: "What is 1500 * 1500",
+    answerOptions: ["2,250,000", "3000", "1,800,000"],
+    correctAnswer: "2,250,000",
   },
   {
-    question: "What is you favorite emotion?",
-    answerOptions: ["happy", "joy", "sad"],
-    correctAnswer: "happy",
+    question: "Which is the smallest?",
+    answerOptions: ["-1", "-1/2", "0", "3"],
+    correctAnswer: "-1",
   },
   {
-    question: "What is 500 + 500",
-    answerOptions: [1000, 50, 20],
-    correctAnswer: 1000,
+    question: "Simplify: (4 - 5)-(13 - 18 + 2)",
+    answerOptions: ["-1", "-2", "1", "2"],
+    correctAnswer: "2",
   },
   {
-    question: "What is you favorite emotion?",
-    answerOptions: ["happy", "joy", "sad"],
-    correctAnswer: "happy",
+    question: "Find the Value of 3+ 2 * (8 - 3)",
+    answerOptions: ["25", "13", "17", "24"],
+    correctAnswer: "13",
   },
 ];
 // keep track of users correct and incorrect answers
