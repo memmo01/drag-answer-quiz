@@ -13,6 +13,25 @@ The drag and drop feature is for desktop only. However, this app is mobile respo
 
 Download the files and add questions/answers into the array located at the top of the script.js file (save file). Next open up the index.html file in the browser and quiz will begin.
 
+## Usage
+### Main Page
+<img width="500"  src="screenshots/quiz_capture.JPG">
+
+### Dragged Answer
+<img width="500"  src="screenshots/dragged_answer.JPG">
+
+### Correct Answer
+<img width="500"  src="screenshots/correct.JPG">
+
+### Incorrect Answer
+<img width="500"  src="screenshots/incorrect.JPG">
+
+### Quiz Results
+<img width="500"  src="screenshots/quiz_results_one.JPG">
+
+### Quiz Details
+<img width="500"  src="screenshots/quiz_details.JPG">
+
 ## Author
 
 Michael Emmons
