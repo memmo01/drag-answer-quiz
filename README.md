@@ -9,11 +9,16 @@ A quiz that populates questions and a set of answers to choose from. On desktop,
 
 The drag and drop feature is for desktop only. However, this app is mobile responsive in design and function. On mobile, the functionality changes from drag and drop to clicking the correct answer. Once the selected answer is clicked, it will be displayed in the answer area. When the submit button is selected, it will submit the answer for review.
 
+
+
 ## Installation
 
 Download the files and add questions/answers into the array located at the top of the script.js file (save file). Next open up the index.html file in the browser and quiz will begin.
 
 ## Usage
+
+[Quiz link](https://memmo01.github.io/drag-answer-quiz/)
+
 ### Main Page
 <img width="500"  src="screenshots/quiz_capture.JPG">
 
