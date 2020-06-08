@@ -19,23 +19,10 @@ Download the files and add questions/answers into the array located at the top o
 
 [Quiz link](https://memmo01.github.io/drag-answer-quiz/)
 
-### Main Page
-<img width="500"  src="screenshots/quiz_capture.JPG">
+### Example
+![Drag and Drop example](screenshots/drag_drop.gif)
 
-### Dragged Answer
-<img width="500"  src="screenshots/dragged_answer.JPG">
 
-### Correct Answer
-<img width="500"  src="screenshots/correct.JPG">
-
-### Incorrect Answer
-<img width="500"  src="screenshots/incorrect.JPG">
-
-### Quiz Results
-<img width="500"  src="screenshots/quiz_results_one.JPG">
-
-### Quiz Details
-<img width="500"  src="screenshots/quiz_details.JPG">
 
 ## Author
 
